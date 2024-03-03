@@ -151,7 +151,34 @@ Then I should get at least 5 result
 
 We'll get this result:
 
-![Alt text](image.png)
+![Alt text](positive.png)
+
+<br>
+
+### Negative test
+
+Suppose that we want to test a Github user with it's repo where it has no issues at all. In here, I'm gonna use my own:
+
+```php
+public function iRequestAListOfIssuesForTheSymfonyRepositoryFromUserSymfony()
+{
+    $issues = $this->client->issues()->all('primprum', 'get-issues');
+
+    $this->results = $issues;
+}
+```
+
+Remember that we're expecting at least 1 result of it:
+
+```gherkin
+Then I should get at least 1 result
+```
+
+Thus, it must gives us an error:
+
+![Alt text](negative.png)
+
+In there we could see that it is expecting it to give 1 result, but the response only gives 0 result (no issues).
 
 <br>
 

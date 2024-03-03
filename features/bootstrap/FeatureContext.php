@@ -37,6 +37,7 @@ class FeatureContext implements Context
     public function iRequestAListOfIssuesForTheSymfonyRepositoryFromUserSymfony()
     {
         $issues = $this->client->issues()->all('Symfony', 'Symfony');
+        // $issues = $this->client->issues()->all('primprum', 'get-issues');
 
         $this->results = $issues;
     }
